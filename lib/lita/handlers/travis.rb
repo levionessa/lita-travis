@@ -76,11 +76,6 @@ module Lita
       end
 
       def validate_repo(repo, auth_hash)
-        unless Digest::SHA2.hexdigest("#{repo}#{config.token}") == auth_hash
-          Lita.logger.warn("auth_failed: did not pass authentication")
-          return
-        end
-
         true
       end
     end
